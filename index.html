@@ -1,0 +1,893 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adnan Javed | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Roboto',sans-serif;background:linear-gradient(to right,#1a73e8,#6dd5fa,#ffffff);scroll-behavior:smooth;}
+
+/* ================= NAVBAR ================= */
+.navbar{
+background:#111;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+color:white;
+font-weight:bold;
+font-size:1.2rem;
+}
+
+.logo img{
+width:45px;
+height:45px;
+border-radius:50%;
+border:2px solid #1a73e8;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+position:relative;
+top:9px;
+transition:0.3s;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+width:0%;
+height:2px;
+left:0;
+bottom:-5px;
+background:#1a73e8;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#1a73e8;
+}
+
+nav a:hover::after{
+width:100%;
+}
+
+.contact-btn{
+background:#1a73e8;
+position:relative;
+top:3px;
+padding:8px 18px;
+border-radius:30px;
+}
+
+.contact-btn:hover{
+background:#155ab6;
+color:white;
+}
+
+/* MOBILE MENU */
+.menu-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+nav{
+position:absolute;
+top:70px;
+right:0;
+background:#111;
+flex-direction:column;
+width:220px;
+padding:20px;
+display:none;
+}
+nav a{padding:10px 0;}
+nav.active{display:flex;}
+.menu-toggle{display:block;}
+}
+
+/* ================= SECTIONS ================= */
+section{padding:70px 20px;max-width:1100px;margin:auto;}
+h2{text-align:center;margin-bottom:40px;color:#333;}
+
+#about{
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+justify-content:center;
+gap:30px;
+}
+
+#about img{
+width:200px;
+border-radius:12px;
+border:3px solid #1a73e8;
+}
+
+#about p{
+max-width:650px;
+font-size:1.1em;
+line-height:1.7;
+color:black;
+}
+
+/* ================= CV BUTTON ================= */
+
+.cv-btn-container{
+  width:100%;
+  text-align:center;
+  margin-top:25px;
+}
+
+.cv-btn{
+  display:inline-block;
+  padding:12px 30px;
+  background:linear-gradient(135deg,#1a73e8,#28a745);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:40px;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.4s ease;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.cv-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+  transition:0.5s;
+}
+
+.cv-btn:hover::before{
+  left:100%;
+}
+
+.cv-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 12px 25px rgba(0,0,0,0.3);
+}
+
+.skills-container{
+display:flex;
+align-items:center;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.skills-content{
+flex:1;
+min-width:300px;
+}
+
+.skills-description{
+margin-bottom:30px;
+line-height:1.7;
+color:black;
+font-size:1.05rem;
+}
+
+.skill-box{
+margin-bottom:22px;
+}
+
+.skill-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+font-weight:600;
+color:white;
+}
+
+.progress{
+background:#ddd;
+border-radius:30px;
+overflow:hidden;
+height:20px;
+}
+#skills h2{
+text-align:left;
+color:whitesmoke;
+font-size:30px;
+opacity:0;
+transform:translateY(40px) scale(0.7);
+
+animation: headingGrow 1s ease forwards;
+animation-timeline: view();
+animation-range: entry 0% cover 40%;
+}
+
+@keyframes headingGrow{
+to{
+font-size:35px;
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+
+.progress-bar{
+background: linear-gradient(90deg, #1a73e8, #28a745);
+height:100%;
+border-radius:30px;
+transition:width 1s ease-in-out;
+}
+
+.skills-image{
+  flex:1;
+  min-width:230px;
+  text-align:center;
+  /* Gradient background behind any image */
+  background: linear-gradient(135deg, #1a73e8, #6dd5fa, #ffffff);
+  border-radius:80px;        /* Rounded container */
+  padding:20px;              /* Space around image */
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.skills-image img{
+  width:100%;
+  max-width:400px;
+  height:400x;
+  border-radius:80px;      
+  object-fit:cover;         
+  background: transparent;   
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+#projects h2{
+font-size: 30px;
+opacity:0;
+transform:translateY(40px) scale(0.7);
+
+animation: headingGrow 1s ease forwards;
+animation-timeline: view();
+animation-range: entry 0% cover 40%;
+}
+
+@keyframes headingGrow{
+to{
+font-size:35px;
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+.project-card{
+background:white;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+overflow:hidden;
+text-align:center;
+transition:0.3s;
+cursor:pointer;
+}
+
+.project-card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.project-card img{
+width:100%;
+aspect-ratio:1896/836;
+object-fit:cover;
+transition:opacity 0.4s ease-in-out;
+}
+.project-card img.fade{opacity:0;}
+
+.view-button{
+  display:inline-block;
+  padding:12px 28px;
+  background:linear-gradient(135deg,#1a73e8,#28a745);
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:30px;
+  transition:0.3s ease;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+}
+
+.view-button:hover{
+  background:linear-gradient(135deg,#28a745,#1a73e8);
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+/* ===== PROJECT SLIDER ===== */
+
+.slider{
+  position:relative;
+  width:100%;
+  overflow:visible;
+}
+
+.slides{
+  position: relative;
+}
+
+.slides img{
+  width:100%;
+  display:none;
+  border-radius:5px 5px 0 0;
+}
+
+.slides img.active{
+  display:block;
+}
+
+.prev, .next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:transparent;
+  color:black;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  border-radius:50%;
+  font-size:20px;
+}
+
+.prev{ left: -10px; }
+.next{ right:-10px; }
+
+.prev:hover, .next:hover{
+  background:#1a73e8;
+}
+
+.dots{
+  text-align:center;
+  padding:8px 0;
+}
+.dots span{
+  height:10px;
+  width:10px;
+  margin:0 4px;
+  display:inline-block;
+  background:#ccc;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.dots span.active-dot{
+  background:#1a73e8;
+}
+
+/* ================= TESTIMONIALS SLIDER ================= */
+#testimonials{
+  background:border-box ;
+  padding:70px 20px;
+  text-align:center;
+}
+
+#testimonials h2{
+  font-size:2.3rem;
+  color:#111;
+  margin-bottom:50px;
+}
+
+.testimonials-slider{
+  display:flex;
+  gap:30px;
+  overflow:hidden;
+  max-width:1000px;
+  margin:auto;
+}
+/* ================= TESTIMONIALS SLIDER ================= */
+.testimonials-slider {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto; /* allow horizontal scroll */
+  scroll-behavior: smooth; /* smooth scrolling */
+  max-width: 1000px;
+  margin: auto;
+  padding-bottom: 20px;
+  flex-wrap: nowrap; /* important to keep cards in a row */
+}
+
+.testimonials-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+.testimonials-slider::-webkit-scrollbar-thumb {
+  background: #1a73e8;
+  border-radius: 4px;
+}
+
+@media(max-width:768px){
+  .testimonials-slider {
+    gap: 20px;
+  }
+  .testimonial-card {
+    flex: 0 0 80%; /* each card takes 80% width of screen */
+    min-width: 250px;
+  }
+}
+
+.testimonial-card{
+  flex:0 0 300px; /* width of each card */
+  background:white;
+  padding:25px 20px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  transition:0.3s;
+  position:relative;
+}
+
+.testimonial-card p{
+  font-style:italic;
+  color:#333;
+  margin-bottom:15px;
+  line-height:1.6;
+}
+
+.testimonial-card h4{
+  font-weight:bold;
+  color:#1a73e8;
+  font-size:1rem;
+}
+
+/* Hover effect */
+.testimonial-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .testimonials-slider{
+    flex-direction:row;
+    gap:20px;
+  }
+  .testimonial-card{
+    flex:0 0 80%;
+  }
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section{
+background:border-box;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+padding:50px;
+}
+
+.contact-container{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+justify-content:center;
+}
+
+.contact-info{flex:1;min-width:250px;}
+.contact-form{flex:1;min-width:250px;}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:12px;
+margin-bottom:12px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+.contact-info p {
+  color: black 
+}
+.contact-info p strong{
+    color: #1a1a1a;
+}
+
+.contact-form button{
+width:100%;
+padding:12px;
+background:#1a73e8;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.contact-form button:hover{
+background:#155ab6;
+}
+.social-links{
+text-align:center;
+margin-top:30px;
+}
+.social-links a{
+margin:0 10px;
+color:#1a73e8;
+font-weight:bold;
+text-decoration:none;
+}
+.social-links a:hover{
+text-decoration:underline;
+color: #ffffff;
+}
+.social-links h3{
+position:relative;
+bottom: 10px;
+}
+footer{
+text-align:center;
+padding:25px;
+background:#1a1a1a;
+color:white;
+}
+
+@media(max-width:768px){
+#about{flex-direction:column;}
+.skills-container{flex-direction:column;}
+.contact-container{flex-direction:column;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+<div class="nav-container">
+<div class="logo">
+<img src="fiver.jpg" alt="Adnan Javed">
+<span>Adnan Javed</span>
+</div>
+
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
+<nav id="nav-menu">
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact" class="contact-btn">Contact</a>
+</nav>
+</div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+<img src="fiver.jpg" alt="Adnan Javed">
+<p>
+Hello! I am Adnan Javed, a passionate web developer and tech enthusiast. 
+I build modern, responsive and interactive websites that help businesses 
+grow digitally and establish a strong online presence.
+</p>
+</section>
+<div class="cv-btn-container">
+  <a href="CV.pdf" class="cv-btn" target="_blank">Download CV</a>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2>Technical Expertise</h2>
+
+<div class="skills-container">
+
+<div class="skills-content">
+
+<p class="skills-description">
+I specialize in developing high-performance web applications using modern 
+technologies. My focus is on clean architecture, responsive design, 
+and scalable backend systems. I aim to deliver optimized, user-friendly 
+solutions that create real business value.
+</p>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>HTML5</span>
+<span>95%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:95%"></div>
+</div>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>CSS3 / Responsive Design</span>
+<span>95%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:90%"></div>
+</div>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>JavaScript (ES6+)</span>
+<span>90%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:80%"></div>
+</div>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>React.js</span>
+<span>80%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:70%"></div>
+</div>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>Node.js / Express</span>
+<span>70%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:65%"></div>
+</div>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">
+<span>MongoDB</span>
+<span>65%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" style="width:60%"></div>
+</div>
+</div>
+
+</div>
+
+<div class="skills-image">
+<img src="fr.png" alt="Coding Illustration">
+</div>
+
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>My Projects</h2>
+<div class="projects-container">
+<div class="project-card">
+  <div class="slider" data-project="ecommerce">
+     <div class="slides">
+      <img src="fur11.png" class="active">
+      <img src="fur2.png">
+      <img src="fur3.png">
+    </div>
+   <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+  <div style="padding:15px;">
+    <a href="https://mianisback59-lang.github.io/furniture/" target="_blank" class="view-button">View Project</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="slider" data-project="car">
+     <div class="slides">
+      <img src="car1.png" class="active">
+      <img src="car2.png">
+      <img src="car3.png">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+  <div style="padding:15px;">
+    <a href=" https://mianisback59-lang.github.io/car/" target="_blank" class="view-button">View Project</a>
+  </div>
+</div>
+
+<div class="project-card">
+  <div class="slider" data-project="campany">
+     <div class="slides">
+      <img src="m1.png" class="active">
+      <img src="m2.png">
+      <img src="m3.png">
+    </div>
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+    <div class="dots"></div>
+  </div>
+  <div style="padding:15px;">
+    <a href="https://mianisback59-lang.github.io/beauty/" target="_blank" class="view-button">View Project</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2>What Clients Say</h2>
+  <div class="testimonials-slider">
+    <div class="testimonial-card">
+      <p>"Adnan created a stunning website for our business. Professional, fast, and highly skilled."</p>
+      <h4>- Ali Khan, CEO of TechSolutions</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <p>"The website was delivered ahead of time and exceeded our expectations. Highly recommended!"</p>
+      <h4>- Sara Malik, Freelancer Client</h4>
+    </div>
+
+    <div class="testimonial-card">
+      <p>"Excellent communication and attention to detail. My project was in great hands."</p>
+      <h4>- Omar Riaz, Startup Founder</h4>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+<h2>Let's Work Together</h2>
+<div class="contact-container">
+
+<div class="contact-info">
+<p><strong>Email:</strong> <a href="mailto:adnanjaved59gb@gmail.com">adnanjaved59gb@gmail.com</a></p>
+<p><strong>Phone:</strong> +92 320 9196059</p>
+<p><strong>Location:</strong> Pakistan</p>
+</div>
+
+<div class="contact-form">
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+
+</div>
+</section>
+
+<div class="social-links">
+<h3>Connect With Me</h3>
+<a href="#">LinkedIn</a>
+<a href="#">GitHub</a>
+<a href="https://www.fiverr.com/adnan_develop59/create-a-responsive-custom-website-using-html-css-and-javascript">Fiverr</a>
+</div>
+</section>
+<footer>© 2026 Adnan Javed</footer>
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+// ===== PROJECT SLIDER =====
+
+document.querySelectorAll(".slider").forEach(slider => {
+
+  const slides = slider.querySelectorAll(".slides img");
+  const prevBtn = slider.querySelector(".prev");
+  const nextBtn = slider.querySelector(".next");
+  const dotsContainer = slider.querySelector(".dots");
+
+  let current = 0;
+
+  // Create dots
+  slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    if(index === 0) dot.classList.add("active-dot");
+    dot.addEventListener("click", () => {
+      showSlide(index);
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll("span");
+
+  function showSlide(index){
+    slides.forEach(img => img.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active-dot"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active-dot");
+
+    current = index;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  });
+
+});
+
+const slider = document.querySelector('.testimonials-slider');  
+let scrollAmount = 0;
+let scrollInterval;
+
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
+function autoScrollTestimonials() {
+  const cardWidth = slider.querySelector('.testimonial-card').offsetWidth + 30;
+  scrollAmount += 4; // adjust speed
+  if(scrollAmount > slider.scrollWidth - slider.offsetWidth) {
+    scrollAmount = 0;
+  }
+  slider.scrollLeft = scrollAmount;
+}
+
+function startAutoScroll() {
+  if (!isMobile()) {
+    scrollInterval = setInterval(autoScrollTestimonials, 12);
+  }
+}
+
+// Wait until page is fully loaded
+window.addEventListener('load', () => {
+  startAutoScroll();
+});
+
+// Pause on hover (desktop only)
+slider.addEventListener('mouseenter', () => {
+  if (!isMobile()) clearInterval(scrollInterval);
+});
+slider.addEventListener('mouseleave', () => startAutoScroll());
+
+// Recalculate on resize
+window.addEventListener('resize', () => {
+  clearInterval(scrollInterval);
+  startAutoScroll();
+});
+
+
+</script>
+</body>
+</html>
+
